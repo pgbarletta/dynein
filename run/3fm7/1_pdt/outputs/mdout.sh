@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Extract heat and equil mdout info
-perl process_mdout.perl 1pdt.out 2pdt.out 3pdt.out 4pdt.out
+perl process_mdout.perl 0pdt.out 1pdt.out 2pdt.out 3pdt.out 4pdt.out
 
 mv summary.ETOT etot.dat
 mv summary.EPTOT eptot.dat
