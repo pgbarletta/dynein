@@ -10,11 +10,12 @@ Alineo 2PG1 a 3FM7. Como 2PG1 tiene los dominios LC8 y TcTex "torcidos"
 -----
     mv 3fm7.pdb orig_3fm7.pdb
     cp orig_3fm7.pdb 3fm7.pdb // y a 3fm7 le borré todos los hidrógenos con: %g/          H/d
-    deleted GLN_1 (misses 5 heavy atoms) and SER_104 (misses 1 heavy atom).
+    deleted GLN_1 (chain A) GLN_105 (chain B) (misses 5 heavy atoms) and SER_104 (misses 1 heavy atom).
     %s/  CD  ILE/  CD1 ILE/g
-    fixed C terminal oxygens for the 4 domain chains (C and D don't have N and C terminus, why?). They should be called OXT.
-    pdb4amber -i 3fm7.pdb -o h3fm7.pdb  --reduce  // elimino todos los archivos salvo h3fm7.pdb
-    wrote and run "leap_3fm7.in". logfile in "log_3fm7"
+    // fixed C terminal oxygens for the 4 domain chains (C and D don't have N and C terminus, why?). They should be called OXT.
+    pdb4amber -i 3fm7.pdb -o h3fm7.pdb --nohyd
+    ls h3fm7* | grep -v h3fm7.pdb | xargs rm // elimino los archivos de pdb4amber salvo h3fm7.pdb
+    tleap -f leap_3fm7.in
 
 2PG1:   NO ME IMPORTA POR AHORA. DESCARTO. 
 -----
@@ -26,4 +27,41 @@ Alineo 2PG1 a 3FM7. Como 2PG1 tiene los dominios LC8 y TcTex "torcidos"
     fixed C terminal oxygens for the 4 domain chains (C and D don't have N and C terminus, why?). They should be called OXT.
     pdb4amber -i 2pg1.pdb -o h2pg1.pdb  --reduce  // elimino todos los archivos salvo h2pg1.pdb
     wrote and run "leap_2pg1.in". logfile in "log_2pg1"
+
+LB3F: LA DESCARTO POR LB3H
+-----
+    cp 3fm7/h3f3f.pdb lb3f/lb3f.pdb
+    vi lb3f.pdb // Remove first GLN from A chain. Remove E&F chains. Cut C&D chains to preserve first 14 residues: NLSVYNVQATNIPP
+    pdb4amber -i lb3f.pdb -o hlb3f.pdb --reduce // p/ q formatee bien los números y los OXT
+    ls hlb3f* | grep -v hlb3f.pdb | xargs rm // elimino los archivos de pdb4amber salvo hlb3f.pdb
+    wrote and run "leap_lb3f.in". logfile in "log_lb3f"
+
+LB3H: CORRER AL FINAL DE TODO P/ REEMPLAZAR A LB3F
+-----
+    // same as LB3F but without hydrogens
+    cp lb3f/hlb3f.pdb lb3e/lb3h.pdb
+    vi lb3h.pdb // changed HID and HIE to HIS
+    pdb4amber -i lb3h.pdb -o hlb3h.pdb --nohyd // p/ q formatee bien los números y los OXT
+    ls hlb3h* | grep -v hlb3h.pdb | xargs rm // elimino los archivos de pdb4amber salvo hlb3h.pdb
+    tleap -f leap_lb3h.in
+
+LF3F:
+-----
+    cp lb3f/hlb3f.pdb lf3f/hlf3f.pdb
+    vi hlf3f.pdb // Remove C&D chains
+    tleap -f leap_lf3f.in
+
+LBM7:
+-----
+    cp 3fm7/h3fm7.pdb lb3f/lbm7.pdb // borre cadenas A y B, moví las C y D al final y
+    // renombre las E y F a A y B, respectivamente. Cut C&D chains to preserve first 9 residues: VYTKQTQTT
+    pdb4amber -i lbm7.pdb -o hlbm7.pdb --nohyd // p/ q formatee bien los números y los OXT
+    ls hlbm7* | grep -v hlbm7.pdb | xargs rm // elimino los archivos de pdb4amber salvo hlbm7.pdb
+    tleap -f leap_lbm7.in
+
+LFM7:
+-----
+    cp ../lbm7/hlbm7.pdb hlfm7.pdb
+    vi hlfm7.pdb // Remove C&D chains.
+    tleap -f leap_lfm7.in
 
