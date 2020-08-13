@@ -85,19 +85,19 @@ sub process_input {
 	    ($time, $temp, $pres) =
 		/NSTEP =.*TIME.* =(.*\d*\.\d*).*TEMP.* =(.*\d*\.\d*).*PRESS = (.*\d*\.\d*)/;
 	    if ( $debug ) {
-		print $_;
-		print "time is $time, temp is $temp, pres is $pres\n";
+		    print $_;
+		    print "time is $time, temp is $temp, pres is $pres\n";
 	    }
 	    $_ = <INPUT>;
-
+    }
 	    if (/Etot/) {
-		($etot, $ektot, $eptot) =
-		    /Etot.*=(.*\d*\.\d*).*EKtot.*=(.*\d*\.\d*).*EPtot.*=(.*\d*\.\d*)/;
-		if ( $debug ) {
-		    print $_;
-		    print "Etot is $etot, ektot is $ektot, eptot is $eptot\n";
-		}
-		$_ = <INPUT>;
+		    ($etot, $ektot, $eptot) =
+		        /Etot.*=(.*\d*\.\d*).*EKtot.*=(.*\d*\.\d*).*EPtot.*=(.*\d*\.\d*)/;
+		    if ( $debug ) {
+		        print $_;
+    		    print "Etot is $etot, ektot is $ektot, eptot is $eptot\n";
+	    	}
+		    $_ = <INPUT>;
 	    }
 	    if (/BOND.*ANGLE.*DIHED/) {
 		($bond, $angle, $dihedral) =
@@ -255,8 +255,6 @@ sub process_input {
 		$DENSITY{$time}    = $density;
 		$ESCF{$time}       = $escf;
 	    }
-
-	}
     }
 }
 
