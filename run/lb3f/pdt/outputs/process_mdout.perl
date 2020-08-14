@@ -12,7 +12,7 @@ foreach $i ( 0..$#ARGV ) {
     $checkfile = $filein;
     $checkfile =~ s/\.Z//;
     if ( $filein ne $checkfile ) {
-	open(INPUT, "zcat $filein |") || 
+	open(INPUT, "zcat $filein |") ||
 	    die "Cannot open compressed $filein -- $!\n";
     } else {
 	open(INPUT, $filein) || die "Cannot open $filein -- $!\n";
@@ -71,7 +71,7 @@ sub process_input {
     $debug = 0;
     while ( <INPUT> ) {
 	$string = $_;
-	
+
 	print $_ if ( ! /NB-upda/ && $debug );
 
 	if (/A V E R A G E S/) {
@@ -85,24 +85,24 @@ sub process_input {
 	    ($time, $temp, $pres) =
 		/NSTEP =.*TIME.* =(.*\d*\.\d*).*TEMP.* =(.*\d*\.\d*).*PRESS = (.*\d*\.\d*)/;
 	    if ( $debug ) {
-		    print $_;
-		    print "time is $time, temp is $temp, pres is $pres\n";
+		print $_;
+		print "time is $time, temp is $temp, pres is $pres\n";
 	    }
 	    $_ = <INPUT>;
     }
 	    if (/Etot/) {
-		    ($etot, $ektot, $eptot) =
-		        /Etot.*=(.*\d*\.\d*).*EKtot.*=(.*\d*\.\d*).*EPtot.*=(.*\d*\.\d*)/;
-		    if ( $debug ) {
-		        print $_;
-    		    print "Etot is $etot, ektot is $ektot, eptot is $eptot\n";
-	    	}
-		    $_ = <INPUT>;
+		($etot, $ektot, $eptot) =
+		    /Etot.*=(.*\d*\.\d*).*EKtot.*=(.*\d*\.\d*).*EPtot.*=(.*\d*\.\d*)/;
+		if ( $debug ) {
+		    print $_;
+		    print "Etot is $etot, ektot is $ektot, eptot is $eptot\n";
+		}
+		$_ = <INPUT>;
 	    }
 	    if (/BOND.*ANGLE.*DIHED/) {
 		($bond, $angle, $dihedral) =
 		    /BOND.*=(.*\d*\.\d*).*ANGLE.*=(.*\d*\.\d*).*DIHED.*=(.*\d*\.\d*)/;
-		if ( $debug ) {
+    if ( $debug ) {
 		    print $_;
 		    print "bond is $bond, angle is $angle, dihedral is $dihedral\n";
 		}
@@ -111,7 +111,8 @@ sub process_input {
 	    if (/1-4 NB/) {
 		($nb14, $eel14, $nb) =
 		    /1-4 NB.*=(.*\d*\.\d*).*1-4 EEL.*=(.*\d*\.\d*).*VDWAALS.*=(.*\d*\.\d*)/;
-		if ( $debug ) {
+
+    if ( $debug ) {
 		    print $_;
 		    print "nb14 is $nb14, eel14 is $eel14, vdwaals is $nb\n";
 		}
@@ -120,7 +121,7 @@ sub process_input {
 	    if (/EELEC/) {
 		($eel, $ehbond, $constraint) =
 		    /EELEC.*=(.*\d*\.\d*).*EHBOND.*=(.*\d*\.\d*).*CONSTRAINT.*=(.*\d*\.\d*)/;
-		if ( $debug ) {
+    if ( $debug ) {
 		    print $_;
 		    print "eel is $eel, ehbond is $ehbond, constraint is $constraint\n";
 		}
@@ -131,8 +132,9 @@ sub process_input {
 #
 	        if ( /EAMBER/ ) {
 		    $_ = <INPUT>;
+
 		}
-	    }
+	    #}
 	    if (/EKCMT/) {
 		($ekcmt, $virial, $volume) =
 		    /EKCMT.*=(.*\d*\.\d*).*VIRIAL.*=(.*\d*\.\d*).*VOLUME.*=(.*\d*\.\d*)/;
@@ -171,7 +173,7 @@ sub process_input {
 		$_ = <INPUT>;
 	    }
             if (/ESCF/) {
-                ($escf) = 
+                ($escf) =
                     /.*ESCF.*=(.*\d*\.\d*)/;
                 if ( $debug ) {
                     print $_;
@@ -229,7 +231,7 @@ sub process_input {
 		$RMS_TSOLVENT{$time}   = $tsolvent;
 		$RMS_DENSITY{$time}    = $density;
 		$RMS_ESCF{$time}       = $escf;
-		
+
 		$rms = 0;
 	    } else {
 		$TIME{$time}       = $time;
@@ -249,14 +251,13 @@ sub process_input {
 		$CONSTRAINT{$time} = $constraint;
 		$EKCMT{$time}      = $ekcmt;
 		$VIRIAL{$time}     = $virial;
-		$VOLUME{$time}     = $volume;	
+		$VOLUME{$time}     = $volume;
 		$TSOLUTE{$time}    = $tsolute;
 		$TSOLVENT{$time}   = $tsolvent;
 		$DENSITY{$time}    = $density;
 		$ESCF{$time}       = $escf;
 	    }
+
+	}
     }
 }
-
-
-
