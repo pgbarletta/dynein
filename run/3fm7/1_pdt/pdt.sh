@@ -15,7 +15,7 @@ do
 
     if [ $i == 0 ]
     then
-        inpcrd=4_3fm7.rst7
+        inpcrd=1_3fm7.rst7
         mdin=pre_pdt.in
 
         pmemd.cuda -O -i $mdin -o $mdout -p $prmtop -c $inpcrd -r $restrt -x $mdcrd

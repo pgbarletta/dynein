@@ -1,8 +1,8 @@
 #!/bin/bash
 
-ANA2 lc8.pdb -c ecf.cfg -t ch_ecf
-ANA2 lc8.pdb -c edf.cfg -t ch_edf
-ANA2 tctex.pdb -c acb.cfg -t ch_acb
-ANA2 tctex.pdb -c adb.cfg -t ch_adb
+ANA2 top_3fm7.pdb -c ecf.cfg -t ch_ecf
+ANA2 top_3fm7.pdb -c edf.cfg -t ch_edf
+ANA2 top_3fm7.pdb -c acb.cfg -t ch_acb
+ANA2 top_3fm7.pdb -c adb.cfg -t ch_adb
 
 exit 0

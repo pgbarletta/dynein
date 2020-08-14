@@ -9,9 +9,9 @@ do
     mdin=pdt.in
     mdout=${i}pdt.out
     prmtop=/home/almacen/pbarletta/dynein/top_files/3fm7.prmtop
-    inpcrd=${k}p1_3fm7.rst7
-    restrt=${i}p1_3fm7.rst7
-    mdcrd=${i}p1_3fm7.nc
+    inpcrd=${k}p4_3fm7.rst7
+    restrt=${i}p4_3fm7.rst7
+    mdcrd=${i}p4_3fm7.nc
 
     if [ $i == 0 ]
     then
