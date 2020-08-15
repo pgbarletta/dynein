@@ -30,9 +30,9 @@ do
     sed -i s/top_3f/${i}_top_3f/g get_top_cpp
     sed -i s/rmsd_/${i}_rmsd_/g rms_cpp
    
-    cpptraj < pca_cpp
-    cpptraj < fit_avg_cpp
-    cpptraj < rms_cpp
+#    cpptraj < pca_cpp
+#    cpptraj < fit_avg_cpp
+#    cpptraj < rms_cpp
  
     cd ..
 done

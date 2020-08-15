@@ -1,13 +1,13 @@
 #!/bin/bash
 
-pdb=3fm7
+pdb=lb3f
 
 #
 # Despues hay q arreglar ${i}_top_${pdb} agregandoles letras de cadena
 # y generer het_${i}_top_${pdb}
 #
 
-for i in {1..1}
+for i in {1..4}
 do
     mkdir ${i}_cavidad
     cd ${i}_cavidad
