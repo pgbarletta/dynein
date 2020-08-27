@@ -2,7 +2,7 @@
 
 pdb=lb3f
 
-for i in {1..4}
+for i in {3..4}
 do
     mkdir ${i}_pca
     cd ${i}_pca

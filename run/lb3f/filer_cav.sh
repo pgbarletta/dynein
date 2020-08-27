@@ -7,7 +7,7 @@ pdb=lb3f
 # y generer het_${i}_top_${pdb}
 #
 
-for i in {1..4}
+for i in {3..4}
 do
     mkdir ${i}_cavidad
     cd ${i}_cavidad
