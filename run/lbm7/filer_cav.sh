@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pdb=lf3f
+pdb=lbm7
 
 #
 # Despues hay q arreglar ${i}_top_${pdb} agregandoles letras de cadena
