@@ -58,10 +58,59 @@ LBM7:
     pdb4amber -i lbm7.pdb -o hlbm7.pdb --nohyd // p/ q formatee bien los números y los OXT
     ls hlbm7* | grep -v hlbm7.pdb | xargs rm // elimino los archivos de pdb4amber salvo hlbm7.pdb
     tleap -f leap_lbm7.in
+    parmed -i parmed_lbm7 // le agrego info de cadena y otras
 
 LFM7:
 -----
     cp ../lbm7/hlbm7.pdb hlfm7.pdb
     vi hlfm7.pdb // Remove C&D chains.
     tleap -f leap_lfm7.in
+    parmed -i parmed_lfm7 // le agrego info de cadena y otras
+
+1F95:
+----
+    pdb4amber -i 1f95.pdb -o h1f95.pdb --nohyd // p/ q formatee bien los números y los OXT
+    ls h1f95* | grep -v h1f95.pdb | xargs rm // elimino los archivos de pdb4amber salvo h1f95.pdb
+    tleap -f leap_1f95.in
+    parmed -i parmed_1f95 // le agrego info de cadena y otras
+
+
+1F96: // tiene un missing atom
+----
+    Arreglo el missing en originales_pdbs
+    pdb4amber -i 1f96.pdb -o h1f96.pdb --nohyd // p/ q formatee bien los números y los OXT
+    ls h1f96* | grep -v h1f96.pdb | xargs rm // elimino los archivos de pdb4amber salvo h1f96.pdb
+    tleap -f leap_1f96.in
+    parmed -i parmed_1f96 // le agrego info de cadena y otras
+
+
+2XQQ: // tiene missing atoms
+----
+    pdb4amber -i 2xqq.pdb -o h2xqq.pdb --nohyd // p/ q formatee bien los números y los OXT
+    ls h2xqq* | grep -v h2xqq.pdb | xargs rm // elimino los archivos de pdb4amber salvo h2xqq.pdb
+    tleap -f leap_2xqq.in
+    parmed -i parmed_2xqq // le agrego info de cadena y otras
+
+3ZKE:
+----
+    pdb4amber -i 3zke.pdb -o h3zke.pdb --nohyd // p/ q formatee bien los números y los OXT
+    ls h3zke* | grep -v h3zke.pdb | xargs rm // elimino los archivos de pdb4amber salvo h3zke.pdb
+    tleap -f leap_3zke.in
+    parmed -i parmed_3zke // le agrego info de cadena y otras
+
+3ZKF:
+----
+    pdb4amber -i 3zkf.pdb -o h3zkf.pdb --nohyd // p/ q formatee bien los números y los OXT
+    ls h3zkf* | grep -v h3zkf.pdb | xargs rm // elimino los archivos de pdb4amber salvo h3zkf.pdb
+    tleap -f leap_3zkf.in
+    parmed -i parmed_3zkf // le agrego info de cadena y otras
+
+5VKY:
+----
+    pdb4amber -i 5vky.pdb -o h5vky.pdb --nohyd // p/ q formatee bien los números y los OXT
+    ls h5vky* | grep -v h5vky.pdb | xargs rm // elimino los archivos de pdb4amber salvo h5vky.pdb
+    *leap_5vky.in* usa `leaprc.phosaa19SB`. A la fosfoserina la llamo SEP, p/ q tenga 2 cargas
+    negativas. S1P sería con 1 sola carga negativa.
+    tleap -f leap_5vky.in
+    parmed -i parmed_5vky // le agrego info de cadena y otras
 
