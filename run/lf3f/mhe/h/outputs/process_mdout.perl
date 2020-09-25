@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 
+# Fixed!
 
 if ($#ARGV < 0) {
     print "  Incorrect usage...\n";
@@ -81,7 +82,7 @@ sub process_input {
 
 	$rms = 1 if (/R M S/);
 
-	if (/NSTEP/) {
+	    if (/NSTEP/) {
 	    ($time, $temp, $pres) =
 		/NSTEP =.*TIME.* =(.*\d*\.\d*).*TEMP.* =(.*\d*\.\d*).*PRESS = (.*\d*\.\d*)/;
 	    if ( $debug ) {
@@ -89,7 +90,7 @@ sub process_input {
 		print "time is $time, temp is $temp, pres is $pres\n";
 	    }
 	    $_ = <INPUT>;
-
+        }
 	    if (/Etot/) {
 		($etot, $ektot, $eptot) =
 		    /Etot.*=(.*\d*\.\d*).*EKtot.*=(.*\d*\.\d*).*EPtot.*=(.*\d*\.\d*)/;
@@ -132,7 +133,7 @@ sub process_input {
 	        if ( /EAMBER/ ) {
 		    $_ = <INPUT>;
 		}
-	    }
+	    
 	    if (/EKCMT/) {
 		($ekcmt, $virial, $volume) =
 		    /EKCMT.*=(.*\d*\.\d*).*VIRIAL.*=(.*\d*\.\d*).*VOLUME.*=(.*\d*\.\d*)/;
@@ -179,7 +180,7 @@ sub process_input {
                 }
                 $_ = <INPUT>;
             }
-
+        
 #       update arrays
 
 	    if ( $averages == 1 ) {

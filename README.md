@@ -12,4 +12,15 @@
     Este orden sale de mirar el heatmap de proyecciones de la trayectoria sobre PCA1 y PCA2, arrancar
 desde arriba (MAX PROJ PCA2) e ir en sentido horario.
 
-## 3FM7
+## Modelos
+
+- 3FM7 y sus derivadas: LB3F, LF3F, LBM7, LFM7
+- TcTex: 5VKY, 5WI4 (descartada, es quimera), 
+- LC8: 1F95 ( DLC8/Bim), 1F96 (DLC8/nNOS), 3ZKE, 3ZKF, 2XQQ(descartada, por ahora)
+
+### 2XQQ
+
+    Sus ICs desordenados son más cortos. Sólo 6 residuos: RGTQTE. El primer 
+residuo es una SERina acetilada (p/ q la carga positiva no joda) y eso es un poco molesto
+así q por ahora no la voy a incluir.
+
