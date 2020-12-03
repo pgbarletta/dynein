@@ -77,9 +77,8 @@ LFM7:
 
 1F96: // tiene un missing atom
 ----
-    Arreglo el missing en originales_pdbs
-    pdb4amber -i 1f96.pdb -o h1f96.pdb --nohyd // p/ q formatee bien los números y los OXT
-    ls h1f96* | grep -v h1f96.pdb | xargs rm // elimino los archivos de pdb4amber salvo h1f96.pdb
+    Arreglo el missing en originales_pdbs y ahí también le corrí el pdb4amber y agregué los hidrógenos
+    cp /home/pbarletta/labo/20/dynein/top_files/originales_pdbs/1f96/fill_nmr/h1f96_1.pdb /home/pbarletta/labo/20/dynein/top_files/pdbs/1f96/h1f96.pdb
     tleap -f leap_1f96.in
     parmed -i parmed_1f96 // le agrego info de cadena y otras
 
@@ -103,14 +102,21 @@ LFM7:
     pdb4amber -i 3zkf.pdb -o h3zkf.pdb --nohyd // p/ q formatee bien los números y los OXT
     ls h3zkf* | grep -v h3zkf.pdb | xargs rm // elimino los archivos de pdb4amber salvo h3zkf.pdb
     tleap -f leap_3zkf.in
+    // *leap_5vky.in* usa `leaprc.phosaa19SB`. A la fosfoserina la llamo SEP, p/ q tenga 2 cargas
+    // negativas. S1P sería con 1 sola carga negativa.
     parmed -i parmed_3zkf // le agrego info de cadena y otras
 
 5VKY:
 ----
     pdb4amber -i 5vky.pdb -o h5vky.pdb --nohyd // p/ q formatee bien los números y los OXT
     ls h5vky* | grep -v h5vky.pdb | xargs rm // elimino los archivos de pdb4amber salvo h5vky.pdb
-    *leap_5vky.in* usa `leaprc.phosaa19SB`. A la fosfoserina la llamo SEP, p/ q tenga 2 cargas
-    negativas. S1P sería con 1 sola carga negativa.
     tleap -f leap_5vky.in
     parmed -i parmed_5vky // le agrego info de cadena y otras
+
+1XDX:
+----
+    pdb4amber -i 1xdx.pdb -o h1xdx.pdb --nohyd // p/ q formatee bien los números y los OXT
+    ls h1xdx* | grep -v h1xdx.pdb | xargs rm // elimino los archivos de pdb4amber salvo h1xdx.pdb
+    tleap -f leap_1xdx.in
+    parmed -i parmed_1xdx // le agrego info de cadena y otras
 
