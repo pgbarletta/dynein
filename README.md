@@ -24,3 +24,14 @@ desde arriba (MAX PROJ PCA2) e ir en sentido horario.
 residuo es una SERina acetilada (p/ q la carga positiva no joda) y eso es un poco molesto
 así q por ahora no la voy a incluir.
 
+
+### Otras
+
+    A partir de 1F95 uso estos archivos auxiliares: *filer_cav.sh*,  *filer.sh* y *min_rmsd.jl*
+Una vez q hago y corro, a mano, las carpetas *run*, *pca* y *cavidad*, las
+4 restantes las hago automáticamente con estos scripts
+
+### 1F95
+    En 1_pdt, una de las IC (C o D, no sé cual), se le despegó una punta por un toque y luego volvió.
+
+### 1F96
