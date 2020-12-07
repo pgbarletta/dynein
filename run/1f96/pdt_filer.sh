@@ -8,7 +8,7 @@ do
     cp -r pdt/outputs ${i}_pdt/
     cd ${i}_pdt/outputs
 
-    rm *out
+    rm *out *dat
     mv ../*out .
 
     cd ../../
