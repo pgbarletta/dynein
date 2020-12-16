@@ -35,3 +35,9 @@ Una vez q hago y corro, a mano, las carpetas *run*, *pca* y *cavidad*, las
     En 1_pdt, una de las IC (C o D, no sé cual), se le despegó una punta por un toque y luego volvió.
 
 ### 1F96
+
+
+### 1XDX
+    Tiene 12 residuos más q la TcTex de 3FM7. 114 vs 102. Están todos al ppio de la cadena:
+MET GLU GLY VAL ASP PRO ALA VAL GLU GLU ALA ALA PHE
+Descarto estos residuos en PCA y así llego a la misma longitud q LF3F
