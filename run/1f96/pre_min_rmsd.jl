@@ -11,24 +11,26 @@ casa = joinpath("/home/pbarletta/labo/20/dynein/run", pdb)
 cd(casa)
 cpp_plantilla = readlines(joinpath("plantillas", "get_top_cpp"))
 
-cpp = copy(cpp_plantilla)
-rmsd_fn = joinpath("pca", "rmsd_avg")
+for idx = 1:4
+    cpp = copy(cpp_plantilla)
+    rmsd_fn = joinpath(string(idx, "_pca"), string(idx, "_", "rmsd_avg"))
 
-rms = convert(Array{Float64, 1}, readdlm(rmsd_fn)[2:end, 2])
-frm = findmin(rms)[2]
+    rms = convert(Array{Float64, 1}, readdlm(rmsd_fn)[2:end, 2])
+    frm = findmin(rms)[2]
 
-cpp[1] = replace(cpp[1], "apo" => pdb)
+    cpp[1] = replace(cpp[1], "apo" => pdb)
 
-cpp[3] = replace(cpp[3], "1_full" => string("full"))
-cpp[3] = replace(cpp[3], "X" => string(frm))
-cpp[3] = replace(cpp[3], "apo" => pdb)
+    cpp[3] = replace(cpp[3], "full" => string(idx, "_full"))
+    cpp[3] = replace(cpp[3], "X" => string(frm))
+    cpp[3] = replace(cpp[3], "apo" => pdb)
 
-cpp[4] = replace(cpp[4], "apo" => pdb)
-cpp[4] = replace(cpp[4], "1_top" => string("top"))
+    cpp[4] = replace(cpp[4], "apo" => pdb)
+    cpp[4] = replace(cpp[4], "top" => string(idx, "_top"))
+    
+    writedlm(joinpath(string(idx, "_pca"), "get_top_cpp"), cpp)
 
-writedlm(joinpath("pca", "get_top_cpp"), cpp)
-
-cd("pca")
-run(`cpptraj -i get_top_cpp`)
-cd("..")
+    cd(string(idx, "_pca"))
+    run(`cpptraj -i get_top_cpp`)
+    cd("..")
+end
 
