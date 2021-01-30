@@ -41,3 +41,17 @@ Una vez q hago y corro, a mano, las carpetas *run*, *pca* y *cavidad*, las
     Tiene 12 residuos más q la TcTex de 3FM7. 114 vs 102. Están todos al ppio de la cadena:
 MET GLU GLY VAL ASP PRO ALA VAL GLU GLU ALA ALA PHE
 Descarto estos residuos en PCA y así llego a la misma longitud q LF3F
+
+    Los *?_full_fit_1xdx.nc* fueron hechos con RMSfit a :1-228@CA, lo cual estaba mal pq las 2 subunidades
+tienen extremos largos. Con esas trayectorias hice PCA y vol, pero esta vez apliqué la máscara: :13-114,127-228@CA.
+Luego me di cuenta y rehice los RMSfit con esa misma máscara en funes y me bajé los nuevos *rmsd_1xdx* y *?_full_fit_1xdx.nc*
+pero no rehice todo el análisis de PCA y vol pq entiendo q es lo mismo. PCA hace un RMSfit al average antes del análisis
+y ahí si utilicé bien la máscara.
+
+### 3ZKF
+    En 1_pdt, el N-term de la chain D se despegó a eso de los 50ns de corrida. P/ los 200ns dejó de joder
+y se volvió a pegar.
+
+### 5VKY
+    Es TcTex1, tiene 112 residuos por cadena y la verdad q no le veo razón p/ cortar la máscara
+de RMSD en algún punto particular. 
